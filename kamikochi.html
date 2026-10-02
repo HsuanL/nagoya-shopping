@@ -165,11 +165,45 @@
             font-size: 12px;
             color: #94a3b8;
         }
+        /* 新增：頂部導覽列與回首頁按鈕 */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            background-color: #f1f5f9;
+            color: #334155;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            border: 1px solid #cbd5e1;
+            transition: all 0.2s ease;
+        }
+
+        .home-btn:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border-color: var(--primary-color);
+        }
+        
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- 新增：回首頁導覽按鈕 -->
+        <div class="top-nav">
+            <a href="https://japan-october2026.pages.dev/" class="home-btn">🏠 回首頁</a>
+        </div>
+        
         <header>
             <h1>🏔️ 上高地健行路線導覽</h1>
             <p class="subtitle">Kamikochi Hiking & Trekking Guide</p>
