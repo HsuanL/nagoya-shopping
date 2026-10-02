@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>靜日 Shizuka Coffee｜高樹的慢時光</title>
+  <meta name="description" content="靜日 Shizuka Coffee，座落於屏東高樹的暖調廢墟工業風咖啡館。">
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --cream: #F9F6F0;
+      --warm-gray: #EAE3D2;
+      --wood: #3C2A21;
+      --amber: #C88A58;
+      --amber-dark: #A66E43;
+      --muted: #796A60;
+      --white: #FFFFFF;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 78px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--wood);
+      font-family: "Noto Sans TC", sans-serif;
+      font-weight: 400;
+      line-height: 1.8;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Noto Serif TC", serif;
+      font-weight: 500;
+      letter-spacing: .04em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       Navigation
+    ========================== */
+
+    .navbar {
+      background: rgba(249, 246, 240, .94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(60, 42, 33, .1);
+      transition: .3s ease;
+    }
+
+    .navbar-brand {
+      font-family: "Noto Serif TC", serif;
+      font-size: 1.25rem;
+      letter-spacing: .12em;
+      color: var(--wood);
+    }
+
+    .navbar-brand small {
+      display: block;
+      font-family: "Noto Sans TC", sans-serif;
+      font-size: .62rem;
+      letter-spacing: .18em;
+      color: var(--muted);
+    }
+
+    .nav-link {
+      position: relative;
+      margin: 0 .45rem;
+      color: var(--wood) !important;
+      font-size: .92rem;
+      transition: .3s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 4px;
+      width: 0;
+      height: 1px;
+      background: var(--amber);
+      transform: translateX(-50%);
+      transition: .3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 65%;
+    }
+
+    /* =========================
+       Buttons
+    ========================== */
+
+    .btn-amber {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .45rem;
+      background: var(--amber);
+      border: 1px solid var(--amber);
+      color: #fff;
+      padding: .72rem 1.25rem;
+      border-radius: 2px;
+      transition: .3s ease;
+      box-shadow: 0 6px 18px rgba(60, 42, 33, .08);
+    }
+
+    .btn-amber:hover {
+      background: var(--amber-dark);
+      border-color: var(--amber-dark);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(60, 42, 33, .14);
+    }
+
+    .btn-outline-wood {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .72rem 1.25rem;
+      border: 1px solid var(--wood);
+      color: var(--wood);
+      border-radius: 2px;
+      transition: .3s ease;
+    }
+
+    .btn-outline-wood:hover {
+      background: var(--wood);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       General
+    ========================== */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      color: var(--amber-dark);
+      font-size: .75rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: .8rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1.2rem;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 680px;
+    }
+
+    /* =========================
+       Placeholder
+    ========================== */
+
+    .image-placeholder {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 260px;
+      padding: 2rem;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(60,42,33,.035) 25%,
+          transparent 25%
+        ),
+        var(--warm-gray);
+      background-size: 12px 12px;
+      border: 1px dashed rgba(60, 42, 33, .35);
+      color: var(--muted);
+      text-align: center;
+      transition: .35s ease;
+      overflow: hidden;
+    }
+
+    .image-placeholder span {
+      position: relative;
+      z-index: 2;
+      padding: .5rem 1rem;
+      background: rgba(249,246,240,.82);
+      letter-spacing: .06em;
+    }
+
+    .image-placeholder:hover {
+      transform: translateY(-5px);
+      border-color: var(--amber);
+      box-shadow: 0 16px 35px rgba(60, 42, 33, .12);
+    }
+
+    /* =========================
+       Hero
+    ========================== */
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 130px;
+      padding-bottom: 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.35;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      color: var(--amber-dark);
+      font-style: normal;
+    }
+
+    .hero-description {
+      max-width: 600px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 2;
+      margin-bottom: 2rem;
+    }
+
+    .hero-image {
+      min-height: 560px;
+    }
+
+    .hero-image span {
+      font-size: 1rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    /* =========================
+       About
+    ========================== */
+
+    .about-section {
+      background: #F2EEE6;
+    }
+
+    .story-box {
+      border-left: 2px solid var(--amber);
+      padding-left: 1.5rem;
+      margin-top: 2rem;
+      color: var(--muted);
+    }
+
+    .feature-card {
+      height: 100%;
+      background: rgba(255,255,255,.4);
+      border: 1px solid rgba(60,42,33,.1);
+      padding: 1rem;
+      transition: .35s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(60,42,33,.08);
+    }
+
+    .feature-card .image-placeholder {
+      min-height: 220px;
+    }
+
+    .feature-content {
+      padding: 1.4rem .5rem .4rem;
+    }
+
+    .feature-number {
+      color: var(--amber);
+      font-size: .75rem;
+      letter-spacing: .15em;
+    }
+
+    /* =========================
+       Menu
+    ========================== */
+
+    .menu-card {
+      height: 100%;
+      padding: 2rem;
+      background: var(--warm-gray);
+      border: 1px solid rgba(60,42,33,.08);
+      transition: .3s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(60,42,33,.1);
+    }
+
+    .menu-icon {
+      font-size: 1.8rem;
+      margin-bottom: .8rem;
+    }
+
+    .menu-card h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.35rem;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .85rem 0;
+      border-bottom: 1px solid rgba(60,42,33,.13);
+      font-size: .92rem;
+    }
+
+    .menu-item:last-child {
+      border-bottom: 0;
+    }
+
+    .price {
+      color: var(--amber-dark);
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .signature-image {
+      min-height: 300px;
+    }
+
+    /* =========================
+       Visit
+    ========================== */
+
+    .visit-section {
+      background: #E8E1D6;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+    }
+
+    .info-list li {
+      display: flex;
+      padding: .9rem 0;
+      border-bottom: 1px solid rgba(60,42,33,.12);
+    }
+
+    .info-label {
+      width: 110px;
+      flex-shrink: 0;
+      color: var(--muted);
+    }
+
+    .notice-box {
+      padding: 1.5rem;
+      background: rgba(249,246,240,.7);
+      border-left: 2px solid var(--amber);
+      margin-bottom: 2rem;
+    }
+
+    .map-placeholder {
+      min-height: 460px;
+    }
+
+    /* =========================
+       Footer
+    ========================== */
+
+    footer {
+      padding: 45px 0;
+      background: var(--wood);
+      color: #F9F6F0;
+    }
+
+    footer .brand {
+      font-family: "Noto Serif TC", serif;
+      letter-spacing: .1em;
+      font-size: 1.25rem;
+    }
+
+    footer small {
+      color: rgba(249,246,240,.6);
+    }
+
+    /* =========================
+       Fade In
+    ========================== */
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(35px);
+      transition:
+        opacity .8s ease,
+        transform .8s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       Responsive
+    ========================== */
+
+    @media (max-width: 991.98px) {
+      section {
+        padding: 80px 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 120px;
+      }
+
+      .hero-image {
+        min-height: 420px;
+        margin-top: 3rem;
+      }
+
+      .navbar-collapse {
+        padding: 1rem 0;
+      }
+
+      .nav-link {
+        padding: .65rem 0 !important;
+      }
+
+      .navbar .btn-amber {
+        margin-top: .5rem;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      section {
+        padding: 65px 0;
+      }
+
+      .hero-title {
+        font-size: 2.35rem;
+      }
+
+      .hero-meta {
+        gap: 1rem;
+        flex-direction: column;
+      }
+
+      .hero-image {
+        min-height: 330px;
+      }
+
+      .image-placeholder {
+        min-height: 210px;
+      }
+
+      .map-placeholder {
+        min-height: 320px;
+      }
+
+      .info-list li {
+        display: block;
+      }
+
+      .info-label {
+        display: block;
+        width: auto;
+        margin-bottom: .2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- =========================
+     Navigation
+========================== -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+
+    <a class="navbar-brand" href="#home">
+      靜日
+      <small>SHIZUKA COFFEE</small>
+    </a>
+
+    <button
+      class="navbar-toggler border-0 shadow-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNav"
+      aria-controls="mainNav"
+      aria-expanded="false"
+      aria-label="開啟選單"
+    >
+      <span style="font-size:1.5rem;">☰</span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#about">關於靜日</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#menu">風味菜單</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#visit">探訪靜日</a>
+        </li>
+
+        <li class="nav-item ms-lg-2">
+          <a
+            class="btn-amber"
+            href="https://www.google.com/maps/search/?api=1&query=靜日+Shizuka+Coffee+屏東高樹"
+            target="_blank"
+            rel="noopener"
+          >
+            ↗ Google 地圖導航
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<!-- =========================
+     Hero
+========================== -->
+
+<main>
+
+<section id="home" class="hero">
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6 fade-up">
+
+        <div class="section-label">
+          Shizuka Coffee · Pingtung
+        </div>
+
+        <h1 class="hero-title">
+          走進斑駁與挑高的靜謐，<br>
+          品一杯屬於<em>高樹</em>的慢時光。
+        </h1>
+
+        <p class="hero-description">
+          在廢棄建築的舊歲月中，為你留下留白的日光與咖啡香。
+          讓時間慢一點，讓一杯咖啡成為與自己相處的片刻。
+        </p>
+
+        <div class="d-flex flex-wrap gap-3">
+
+          <a href="#menu" class="btn-amber">
+            探索風味菜單
+          </a>
+
+          <a href="#visit" class="btn-outline-wood">
+            開始探訪
+          </a>
+
+        </div>
+
+        <div class="hero-meta">
+          <span>屏東・高樹</span>
+          <span>10:00 — 18:00</span>
+          <span>週二・週三公休</span>
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-6 fade-up">
+
+        <div class="image-placeholder hero-image">
+          <span>
+            主視覺預留圖框<br>
+            <small>挑高建築・天井・日光灑落</small>
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================
+     About
+========================== -->
+
+<section id="about" class="about-section">
+
+  <div class="container">
+
+    <div class="row mb-5 fade-up">
+
+      <div class="col-lg-7">
+
+        <div class="section-label">
+          About Shizuka
+        </div>
+
+        <h2 class="section-title">
+          一座被時間留下的建築，<br>
+          一杯慢慢完成的咖啡。
+        </h2>
+
+      </div>
+
+      <div class="col-lg-5">
+
+        <p class="section-description">
+          靜日誕生於屏東高樹一棟被歲月遺留下來的挑高建築。
+          我們沒有刻意抹去它曾經的模樣，而是保留水泥牆、鋼骨與斑駁痕跡，
+          在粗獷之間加入木質、日光與咖啡香。
+        </p>
+
+        <div class="story-box">
+          高樹的陽光很慢，午後的風也很慢。
+          在這裡，我們想留一點空白，
+          讓每個人都能找到屬於自己的靜日。
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="row g-4">
+
+      <div class="col-md-4 fade-up">
+
+        <div class="feature-card">
+
+          <div class="image-placeholder">
+            <span>
+              空間圖框<br>
+              鋼架／水泥牆／斑駁結構
+            </span>
+          </div>
+
+          <div class="feature-content">
+
+            <div class="feature-number">01 / STRUCTURE</div>
+
+            <h3>廢墟結構與歷史</h3>
+
+            <p class="text-muted mb-0">
+              保留建築原有鋼骨、水泥牆與歲月痕跡，
+              讓時間成為空間的一部分。
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4 fade-up">
+
+        <div class="feature-card">
+
+          <div class="image-placeholder">
+            <span>
+              空間圖框<br>
+              木質桌椅／自然光影
+            </span>
+          </div>
+
+          <div class="feature-content">
+
+            <div class="feature-number">02 / WARMTH</div>
+
+            <h3>溫潤木質細節</h3>
+
+            <p class="text-muted mb-0">
+              木質溫度與柔和日光，
+              在粗獷的建築裡形成安靜而平衡的呼吸。
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4 fade-up">
+
+        <div class="feature-card">
+
+          <div class="image-placeholder">
+            <span>
+              咖啡圖框<br>
+              手沖／咖啡豆／職人手部
+            </span>
+          </div>
+
+          <div class="feature-content">
+
+            <div class="feature-number">03 / CRAFT</div>
+
+            <h3>職人專注淬鍊</h3>
+
+            <p class="text-muted mb-0">
+              從選豆、研磨到沖煮，
+              讓每一杯咖啡都保留細緻而真實的風味。
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================
+     Menu
+========================== -->
+
+<section id="menu">
+
+  <div class="container">
+
+    <div class="row mb-5 fade-up">
+
+      <div class="col-lg-7">
+
+        <div class="section-label">
+          Menu
+        </div>
+
+        <h2 class="section-title">
+          今天，想喝哪一種靜日？
+        </h2>
+
+        <p class="section-description">
+          從經典咖啡，到使用高樹風土靈感調製的飲品，
+          再配一份手作甜點，讓午後多停留一會。
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- Signature -->
+
+    <div class="row g-4 mb-5">
+
+      <div class="col-md-6 fade-up">
+
+        <div class="image-placeholder signature-image">
+          <span>
+            招牌飲品圖框<br>
+            高樹在地特調
+          </span>
+        </div>
+
+      </div>
+
+      <div class="col-md-6 fade-up">
+
+        <div class="image-placeholder signature-image">
+          <span>
+            手作甜點圖框<br>
+            焦糖布丁／巴斯克乳酪
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Menu Cards -->
+
+    <div class="row g-4">
+
+      <div class="col-lg-4 fade-up">
+
+        <div class="menu-card">
+
+          <div class="menu-icon">☕</div>
+
+          <h3>咖啡系列</h3>
+
+          <div class="menu-item">
+            <span>靜日配方美式</span>
+            <span class="price">$120</span>
+          </div>
+
+          <div class="menu-item">
+            <span>經典拿鐵</span>
+            <span class="price">$150</span>
+          </div>
+
+          <div class="menu-item">
+            <span>嚴選單品手沖</span>
+            <span class="price">$180</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-4 fade-up">
+
+        <div class="menu-card">
+
+          <div class="menu-icon">🍍</div>
+
+          <h3>高樹在地特調</h3>
+
+          <div class="menu-item">
+            <span>高樹鳳梨冰美式</span>
+            <span class="price">$160</span>
+          </div>
+
+          <div class="menu-item">
+            <span>檸檬西西里咖啡</span>
+            <span class="price">$160</span>
+          </div>
+
+          <div class="menu-item">
+            <span>靜日京都焙茶拿鐵</span>
+            <span class="price">$150</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-4 fade-up">
+
+        <div class="menu-card">
+
+          <div class="menu-icon">🍮</div>
+
+          <h3>手作甜點 & 輕食</h3>
+
+          <div class="menu-item">
+            <span>昭和焦糖布丁</span>
+            <span class="price">$110</span>
+          </div>
+
+          <div class="menu-item">
+            <span>濃郁巴斯克乳酪</span>
+            <span class="price">$140</span>
+          </div>
+
+          <div class="menu-item">
+            <span>現烤起司火腿帕里尼</span>
+            <span class="price">$160</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================
+     Visit
+========================== -->
+
+<section id="visit" class="visit-section">
+
+  <div class="container">
+
+    <div class="row g-5 align-items-start">
+
+      <div class="col-lg-5 fade-up">
+
+        <div class="section-label">
+          Visit Us
+        </div>
+
+        <h2 class="section-title">
+          留一個午後，<br>
+          來高樹坐坐。
+        </h2>
+
+        <p class="section-description">
+          不需要趕著去哪裡。
+          找個舒服的位置，點一杯咖啡，
+          讓陽光和時間慢慢經過。
+        </p>
+
+
+        <ul class="info-list">
+
+          <li>
+            <span class="info-label">營業時間</span>
+            <span>10:00 — 18:00</span>
+          </li>
+
+          <li>
+            <span class="info-label">公休日</span>
+            <span>週二・週三</span>
+          </li>
+
+          <li>
+            <span class="info-label">地址</span>
+            <span>屏東縣高樹鄉<br>地址待補</span>
+          </li>
+
+          <li>
+            <span class="info-label">停車</span>
+            <span>店門口設有專屬停車空間</span>
+          </li>
+
+        </ul>
+
+
+        <div class="notice-box">
+
+          <strong>入場須知</strong>
+
+          <ul class="mt-3 mb-0 ps-3">
+            <li>低消一杯飲品</li>
+            <li>平日不限時</li>
+            <li>假日限時 2 小時</li>
+            <li>寵物友善</li>
+            <li>提供 Wi-Fi 及插座</li>
+          </ul>
+
+        </div>
+
+
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=靜日+Shizuka+Coffee+屏東高樹"
+          target="_blank"
+          rel="noopener"
+          class="btn-amber w-100"
+        >
+          ↗ 開啟 Google 地圖導航
+        </a>
+
+      </div>
+
+
+      <div class="col-lg-7 fade-up">
+
+        <div class="image-placeholder map-placeholder">
+
+          <span>
+            Google 地圖嵌入區塊<br>
+            <small>
+              未來可替換為 Google Maps iframe
+            </small>
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     Footer
+========================== -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="row align-items-center g-3">
+
+      <div class="col-md-6">
+
+        <div class="brand">
+          靜日 Shizuka Coffee
+        </div>
+
+        <small>
+          在高樹，留一點時間給自己。
+        </small>
+
+      </div>
+
+      <div class="col-md-6 text-md-end">
+
+        <small>
+          © 2026 Shizuka Coffee. All Rights Reserved.
+        </small>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+  /* =========================
+     Scroll Fade-in
+  ========================== */
+
+  const fadeElements = document.querySelectorAll(".fade-up");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12
+    }
+  );
+
+  fadeElements.forEach((element) => {
+    observer.observe(element);
+  });
+
+
+  /* =========================
+     Mobile Nav Auto Collapse
+  ========================== */
+
+  const navLinks = document.querySelectorAll("#mainNav .nav-link");
+  const navCollapse = document.getElementById("mainNav");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+
+      if (window.innerWidth < 992) {
+
+        const bsCollapse =
+          bootstrap.Collapse.getInstance(navCollapse) ||
+          new bootstrap.Collapse(navCollapse, {
+            toggle: false
+          });
+
+        bsCollapse.hide();
+      }
+
+    });
+  });
+</script>
+
+</body>
+</html>
+```
