@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏔️ 上高地 Kamikochi 健行與登山路線導覽</title>
+    <style>
+        /* 基礎全域樣式 */
+        :root {
+            --primary-color: #2c5e3b; /* 森林深綠 */
+            --accent-color: #d97724;  /* 楓葉橘 */
+            --bg-color: #f4f6f0;      /* 自然清爽背景 */
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: "PingFang TC", "Microsoft JhengHei", "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            box-sizing: border-box;
+        }
+
+        /* 標題與簡介 */
+        header {
+            text-align: center;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0 0 8px 0;
+            font-size: 24px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* 按鈕切換區 */
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .btn {
+            flex: 1;
+            white-space: nowrap;
+            background: #f0f4f1;
+            border: 1px solid #cbd5e1;
+            color: var(--primary-color);
+            padding: 10px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn.active, .btn:hover {
+            background: var(--primary-color);
+            color: #ffffff;
+            border-color: var(--primary-color);
+        }
+
+        /* 路線內容卡片 */
+        .route-card {
+            background: #fbfdfb;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .route-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .route-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .badge {
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            background: #edf4ee;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* 地圖展示區 */
+        .map-box {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .map-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 景點亮點列表 */
+        .highlights {
+            margin: 0;
+            padding-left: 20px;
+            line-height: 1.6;
+            color: #475569;
+            font-size: 14px;
+        }
+
+        .highlights li {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🏔️ 上高地健行路線導覽</h1>
+            <p class="subtitle">Kamikochi Hiking & Trekking Guide</p>
+        </header>
+
+        <!-- 路線選擇按鈕 -->
+        <div class="btn-group">
+            <button class="btn active" onclick="selectRoute('taisho')">大正池 ➔ 河童橋</button>
+            <button class="btn" onclick="selectRoute('myojin')">河童橋 ➔ 明神池</button>
+            <button class="btn" onclick="selectRoute('yokoo')">明神池 ➔ 橫尾</button>
+        </div>
+
+        <!-- 路線詳細卡片 -->
+        <div class="route-card">
+            <div class="route-header">
+                <div class="route-title" id="routeName">大正池 ➔ 河童橋（經典入門）</div>
+                <span class="badge" id="routeLevel">新手推薦 ★☆☆</span>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-item">⏱️ 預估時間：<b id="routeTime">約 1.5 - 2 小時</b></div>
+                <div class="info-item">📏 總距離：<b id="routeDist">約 3.5 公里</b></div>
+                <div class="info-item">🚶 路況：<b>平緩木棧道 / 碎石路</b></div>
+                <div class="info-item">🚌 起點交通：<b>大正池巴士站</b></div>
+            </div>
+
+            <!-- 地圖檢視 -->
+            <div class="map-box">
+                <img id="routeMap" src="image_agent_tag_412527052025805773" alt="上高地路線圖">
+            </div>
+
+            <h4 style="margin: 0 0 10px 0; color: var(--primary-color);">📍 沿途精華景點：</h4>
+            <ul class="highlights" id="routeHighlights">
+                <li><b>大正池</b>：清晨常有薄霧，倒映著燒岳與穗高連峰的絕景。</li>
+                <li><b>田代池 / 田代濕原</b>：可欣賞濕地植物與清澈見底的水流。</li>
+                <li><b>韋斯頓碑</b>：紀念將近代登山運動引入日本的英國傳教士。</li>
+                <li><b>河童橋</b>：上高地地標！地處梓川中央，背景為壯麗的穗高連峰。</li>
+            </ul>
+        </div>
+
+        <footer>
+            💡 溫馨提醒：上高地開山季節通常為每年 4 月中旬至 11 月中旬。山區天氣變化大，請攜帶保暖與防雨衣物。
+        </footer>
+    </div>
+
+    <script>
+        // 路線資料庫
+        const routes = {
+            taisho: {
+                name: "大正池 ➔ 河童橋（經典入門）",
+                level: "新手推薦 ★☆☆",
+                time: "約 1.5 - 2 小時",
+                dist: "約 3.5 公里",
+                highlights: [
+                    "<b>大正池</b>：清晨常有薄霧，倒映著燒岳與穗高連峰的絕景。",
+                    "<b>田代池 / 田代濕原</b>：可欣賞濕地植物與清澈見底的水流。",
+                    "<b>韋斯頓碑</b>：紀念將近代登山運動引入日本的英國傳教士。",
+                    "<b>河童橋</b>：上高地地標！地處梓川中央，背景為壯麗的穗高連峰。"
+                ]
+            },
+            myojin: {
+                name: "河童橋 ➔ 明神池（深度森林漫步）",
+                level: "輕鬆健行 ★★☆",
+                time: "約 2.5 - 3 小時（往返）",
+                dist: "約 7.0 公里（環狀）",
+                highlights: [
+                    "<b>梓川右岸 / 左岸步道</b>：沿途享受原始森林與芬多精芬芳。",
+                    "<b>明神橋</b>：木造吊橋，可近距離仰望雄偉的明神嶽。",
+                    "<b>明神池（穗高神社奧宮）</b>：需付參拜費，池水極度清澈，宛如仙境。",
+                    "<b>嘉門次小屋</b>：必吃岩魚鹽燒（炭火烤魚）與古樸蕎麥麵。"
+                ]
+            },
+            yokoo: {
+                name: "明神池 ➔ 德澤 ➔ 橫尾（進階健行）",
+                level: "體力考驗 ★★★",
+                time: "約 3 - 4 小時（單程）",
+                dist: "約 7.0 公里（單程）",
+                highlights: [
+                    "<b>德澤地區</b>：廣闊的大草皮，春季滿開二輪草，也是熱門露營地。",
+                    "<b>德澤園冰淇淋</b>：標誌性的濃郁牛奶霜霜淇淋，健行必吃！",
+                    "<b>橫尾</b>：前往涸澤圈谷、槍岳與穗高岳的登山口基地。",
+                    "<b>橫尾大橋</b>：跨越梓川，標誌著從「一般健行」進入「高山登山」的界線。"
+                ]
+            }
+        };
+
+        // 切換路線函數
+        function selectRoute(key) {
+            // 切換按鈕 active 樣式
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // 更新卡片內容
+            const r = routes[key];
+            document.getElementById('routeName').innerText = r.name;
+            document.getElementById('routeLevel').innerText = r.level;
+            document.getElementById('routeTime').innerText = r.time;
+            document.getElementById('routeDist').innerText = r.dist;
+
+            // 更新景點列表
+            const ul = document.getElementById('routeHighlights');
+            ul.innerHTML = r.highlights.map(h => `<li>${h}</li>`).join('');
+        }
+    </script>
+
+</body>
+</html>
